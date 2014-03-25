@@ -1,0 +1,18 @@
+div.Menu
+{
+	border: solid 1px #00C5C1;
+	box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+	
+	display: none;
+}
+div.Menu a
+{
+	color: #000000;
+	padding: 4px;
+	transition: background 0.3s, color 0.3s;
+}
+div.Menu a:hover
+{
+	background-color: #00C5C1;
+	color: #FFFFFF;
+}

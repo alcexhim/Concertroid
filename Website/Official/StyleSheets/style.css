@@ -1,0 +1,16 @@
+@import "main.css";
+@import "header.css";
+@import "bigheader.css";
+@import "maintenance.css";
+
+/*
+ *	Slick UI Configuration
+ *
+ *  Modify the below line to read
+ *
+ *     @import "[skin_name]/style.css"
+ *
+ *  so it points to the style.css with the skin you want to use.
+ *
+ */
+@import "clearwater/style.css";

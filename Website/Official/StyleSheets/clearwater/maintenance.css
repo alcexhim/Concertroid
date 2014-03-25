@@ -1,0 +1,28 @@
+div.MaintenanceLogEntrySuccessful
+{
+	background-color: PaleGreen;
+}
+div.MaintenanceLogEntryFailure
+{
+	background-color: LightSalmon;
+}
+div.MaintenanceLogEntrySkipped
+{
+	background-color: Khaki;
+}
+div.MaintenanceLogEntrySuccessful div.MaintenanceLogEntryAction
+{
+	background-color: Lime;
+}
+div.MaintenanceLogEntryFailure div.MaintenanceLogEntryAction
+{
+	background-color: Red;
+}
+div.MaintenanceLogEntrySkipped div.MaintenanceLogEntryAction
+{
+	background-color: Yellow;
+}
+span.MaintenanceLogEntryObject
+{
+	font-weight: bold;
+}

@@ -1,0 +1,42 @@
+body
+{
+	font-family: "Verdana";
+	font-size: 10pt;
+	
+	background-color: #FFFFFF;
+	color: #000000;
+}
+div.Header
+{
+	background: url("images/background_header.png");
+	background-position: bottom left;
+	background-repeat: repeat-x;
+	text-align: center;
+}
+div.Footer
+{
+	font-size: 8pt;
+}
+input, button
+{
+	font-family: "Verdana";
+	font-size: 10pt;
+}
+
+div.Picture
+{
+	padding-top: 4px;
+	border-radius: 6px;
+	
+	border: solid 1px #B0CBEC;
+}
+div.Picture div.PictureCaption
+{
+	background-color: #EEEEEE;
+	color: #333333;
+	
+	padding-top: 4px;
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-bottom: 4px;
+}

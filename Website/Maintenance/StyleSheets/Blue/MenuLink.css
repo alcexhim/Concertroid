@@ -1,0 +1,9 @@
+span.MenuLink a
+{
+	color: #00C5C1;
+	text-decoration: none;
+}
+span.MenuLink a:hover
+{
+	text-decoration: underline;
+}

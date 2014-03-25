@@ -1,0 +1,171 @@
+@import "TilesView.css";
+@import "ButtonContainer.css";
+
+body
+{
+	background-color: #000000;
+	color: #FFFFFF;
+	font-family: "Calibri", sans-serif;
+}
+
+h1
+{
+	color: #336666;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+a:link, a:visited, a:focus, a:active
+{
+	color: #FF66CC;
+	text-decoration: none;
+}
+a:hover
+{
+	color: #FFAAFF;
+	border-color: #33AAAA;
+}
+
+a.AccountNavigationLink:link, a.AccountNavigationLink:visited, a.AccountNavigationLink:focus, a.AccountNavigationLink:active
+{
+	color: #66FFCC;
+}
+a.AccountNavigationLink:hover
+{
+	color: #AAFFAA;
+}
+
+div.Page
+{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+div.Navigation
+{
+	text-align: right;
+	font-family: "Corbel", sans-serif;
+	font-size: 14pt;
+	
+	padding-bottom: 16px;
+	margin-bottom: -16px;
+	border-bottom: solid 1px #FFAAFF;
+}
+div.Navigation
+{
+	background-image: url('/images/header.png');
+	background-repeat: no-repeat;
+}
+div.Navigation a
+{
+	padding-left: 8px;
+	padding-right: 8px;
+	text-decoration: none;
+}
+
+div.Footer
+{
+	color: #666666;
+	text-align: center;
+	font-family: "Candara", "Arial", sans-serif;
+	font-size: 8pt;
+}
+div.Footer a
+{
+	color: #AAAAAA;
+	text-decoration: none;
+}
+div.Footer a:hover
+{
+	color: #CCCCCC;
+}
+
+div.Viewport
+{
+	overflow: hidden;
+	border: solid 1px #336666;
+	border-radius: 4px 4px 4px 4px;
+	margin-left: auto;
+	margin-right: auto;
+	
+	padding: 8px 8px 8px 8px;
+	text-align: left;
+}
+
+div.ViewportNavigation span.ViewportNavigationItem
+{
+	font-size: 10pt;
+	font-family: "Tahoma", sans-serif;
+	text-align: center;
+	text-decoration: none;
+	
+	display: inline-block;
+	width: 30%;
+	padding: 8px 8px 8px 8px;
+	border: solid 1px #336666;
+	border-radius: 4px 4px 4px 4px;
+}
+
+div.ViewportNavigation span.ViewportNavigationItem:hover
+{
+	border-color: #33AAAA;
+}
+div.ViewportNavigation span.ViewportNavigationItem img
+{
+}
+div.ViewportNavigation span.ViewportNavigationItem span.ViewportNavigationItemTitle
+{
+	font-weight: bold;
+	display: block;
+	padding-top: 8px;
+}
+div.ViewportNavigation span.ViewportNavigationItem span.ViewportNavigationItemDateOpen
+{
+	color: #CCCC00;
+}
+div.ViewportNavigation span.ViewportNavigationItem span.ViewportNavigationItemDateBegin
+{
+	color: #00CC00;
+}
+div.ViewportNavigation span.ViewportNavigationItem span.ViewportNavigationItemDateEnd
+{
+	color: #CC0000;
+}
+div.ViewportNavigation span.ViewportNavigationItem span.ViewportNavigationItemDate
+{
+	color: #CCCCCC;
+}
+div.ViewportNavigation span.ViewportNavigationItem span.ViewportNavigationItemDateTop
+{
+	display: block;
+}
+div.ViewportNavigation span.ViewportNavigationItem span.ViewportNavigationItemDescription
+{
+	text-align: left;
+	font-size: 9pt;
+	display: block;
+	padding-bottom: 8px;
+}
+div.ViewportNavigation span.ViewportNavigationItem span.ViewportNavigationControlBox
+{
+	visibility: hidden;
+	display: block;
+	background-color: #CCCCCC;
+	font-size: 8pt;
+}
+div.ViewportNavigation span.ViewportNavigationItem:hover span.ViewportNavigationControlBox
+{
+	visibility: visible;
+}
+
+h3
+{
+	color: #AAAAAA;
+	border-bottom: solid 1px #AAAAAA;
+	font-family: "Candara", sans-serif;
+}
+span.Disabled
+{
+	color: #AAAAAA;
+	cursor: default;
+}

@@ -1,0 +1,24 @@
+div.TilesView a.Tile
+{
+	display: inline-block;
+	
+	border: 1px solid #336666;
+	border-radius: 4px 4px 4px 4px;
+	padding: 8px 8px 8px 8px;
+	margin: 8px 8px 8px 8px;
+}
+div.TilesView a.Tile:hover
+{
+	border: 1px solid #33AAAA;
+}
+div.TilesView a.Tile img.TileImage
+{
+	display: block;
+	width: 200px;
+	height: 107px;
+}
+div.TilesView a.Tile span.TileTitle
+{
+	display: block;
+	text-align: center;
+}

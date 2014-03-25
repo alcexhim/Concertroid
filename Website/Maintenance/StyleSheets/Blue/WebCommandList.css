@@ -1,0 +1,20 @@
+div.WebCommandList
+{
+	background-color: #CCEEFF;
+}
+div.WebCommandList a
+{
+	background-color: #CCEEFF;
+	border: solid 1px transparent;
+	color: #0033AA;
+}
+div.WebCommandList a:hover
+{
+	border: solid 1px #00AAFF;
+}
+div.WebCommandList a:active
+{
+	border: solid 1px #00AAFF;
+	background-color: #00AAFF;
+	color: #FFFFFF;
+}

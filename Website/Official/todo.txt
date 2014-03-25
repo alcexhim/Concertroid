@@ -1,0 +1,20 @@
+cre_tasks
+	cre_task_id
+	cre_task_title
+	cre_task_icon
+	cre_task_description
+
+cre_event_tasks
+	cre_event_id
+	cre_task_id
+	
+cre_tasks samples:
+	title: "Watch"
+	icon: "yt.png"
+	description: "footage on YouTube"
+	title: "Watch"
+	icon: "nnd.png"
+	description: "footage on NicoNicoDouga"
+	title: "View"
+	icon: "setlist.png"
+	description: "the list of songs"

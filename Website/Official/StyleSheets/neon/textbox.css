@@ -1,0 +1,6 @@
+input[type=text], input[type=password], textarea
+{
+	background-color: #000000;
+	border: solid 1px #00FF00;
+	color: #00FF00;
+}

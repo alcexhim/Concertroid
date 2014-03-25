@@ -1,0 +1,10 @@
+a:link, a:visited, a:focus, a:hover, a:active
+{
+	color: #658FC4;
+	text-decoration: none;
+}
+a:hover
+{
+	text-decoration: underline;
+	color: #B0CBEC;
+}

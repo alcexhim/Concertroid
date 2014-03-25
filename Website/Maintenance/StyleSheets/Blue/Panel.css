@@ -1,0 +1,16 @@
+div.Panel
+{
+	background-color: #FFFFFF;
+	border-radius: 8px;
+	border: solid 1px #00AAFF;
+	padding: 16px;
+	box-shadow: 8px 8px 16px #AAAAAA;
+}
+div.Panel div.PanelTitle
+{
+	color: #00AAFF;
+	font-size: 16pt;
+	font-family: "Segoe UI";
+	font-weight: lighter;
+	padding-bottom: 8px;
+}

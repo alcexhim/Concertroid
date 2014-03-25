@@ -1,0 +1,25 @@
+div.Navigation
+{
+	background: -moz-linear-gradient(center bottom, #E8E7E6 0%, #FBFBFB 100%);
+}
+div.Navigation a.NavigationLink, div.Navigation span.Selected
+{
+	color: #666666;
+	text-decoration: none;
+}
+div.Navigation a.NavigationLink
+{
+	/* border: solid 1px transparent; */
+}
+div.Navigation a.NavigationLink:hover
+{
+	background: -moz-linear-gradient(center bottom, #658FC4 0%, #ACC5E4 100%);
+	/* border: solid 1px #4B6E99; */
+	color: #000000;
+}
+div.Navigation span.Selected
+{
+	background: -moz-linear-gradient(center bottom, #ACC5E4 0%, #658FC4 100%);
+	/* border: solid 1px #4B6E99; */
+	color: #000000;
+}

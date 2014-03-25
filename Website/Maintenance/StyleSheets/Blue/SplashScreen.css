@@ -1,0 +1,11 @@
+body.SplashScreen
+{
+	background-color: #00C5C1;
+}
+body.SplashScreen input[type=text], body.SplashScreen input[type=password]
+{
+	border: solid 1px #00A5A1;
+	padding: 4px 4px 4px 4px;
+	border-radius: 8px 8px 8px 8px;
+	font-size: 14pt;
+}

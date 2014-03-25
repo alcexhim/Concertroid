@@ -1,0 +1,45 @@
+# supress php errors
+php_flag display_startup_errors off
+php_flag display_errors off
+php_flag html_errors off
+php_value docref_root 0
+php_value docref_ext 0
+# enable PHP error logging
+php_flag  log_errors on
+php_value error_log  /home/a6299768/error.log
+# prevent access to PHP error log
+<Files PHP_errors.log>
+	Order allow,deny
+	Deny from all
+	Satisfy All
+</Files>
+
+
+RewriteEngine On
+
+# Do not remove this line, otherwise mod_rewrite rules will stop working
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{HTTP_HOST} !^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+RewriteRule ^account$ account.php [PT,L,QSA]
+RewriteRule ^content$ content.php [PT,L,QSA]
+RewriteRule ^products$ products.php [PT,L,QSA]
+RewriteRule ^events$ events.php [PT,L,QSA]
+RewriteRule ^members$ members.php [PT,L,QSA]
+RewriteRule ^partners$ partners.php [PT,L,QSA]
+
+RewriteRule ^account/(.*)$ account.php?virtualpath=$1 [PT,L,QSA]
+RewriteRule ^content/(.*)$ content.php?virtualpath=$1 [PT,L,QSA]
+RewriteRule ^products/(.*)$ products.php?virtualpath=$1 [PT,L,QSA]
+RewriteRule ^events/(.*)$ events.php?virtualpath=$1 [PT,L,QSA]
+RewriteRule ^members/(.*)$ members.php?virtualpath=$1 [PT,L,QSA]
+RewriteRule ^partners/(.*)$ partners.php?virtualpath=$1 [PT,L,QSA]
+
+ErrorDocument 403 /error.php
+ErrorDocument 404 /error.php
+ErrorDocument 500 /error.php

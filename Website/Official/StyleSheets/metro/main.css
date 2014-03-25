@@ -1,0 +1,43 @@
+/* padding: top right bottom left */
+
+h1
+{
+	font-size: 24pt;
+	font-weight: normal;
+}
+h2
+{
+	font-size: 16pt;
+	font-weight: normal;
+}
+table tr td
+{
+	vertical-align: top;
+}
+
+div.TileContainer a.Tile
+{
+	display: inline-block;
+	height: 120px;
+	cursor: default;
+}
+div.TileContainer a.Tile.Large
+{
+	width: 248px;
+}
+div.TileContainer a.Tile.Small
+{
+	width: 124px;
+}
+div.TileContainer a.Tile span.Title
+{
+	display: block;
+	padding: 8px;
+	font-size: 14pt;
+}
+div.TileContainer a.Tile span.Description
+{
+	display: block;
+	padding: 8px;
+	font-size: 12pt;
+}

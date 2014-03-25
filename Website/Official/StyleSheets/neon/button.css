@@ -1,0 +1,62 @@
+a.BigButton, span.BigButton
+{
+	border-radius: 4px;
+}
+a.BigButton
+{
+	border: solid 1px #00FF00;
+	background-color: #000000;
+	background-image: -moz-linear-gradient(center bottom , #000000 50%, #00FF00 100%);
+}
+a.BigButton:hover
+{
+	border: solid 1px #00FFFF;
+	background-color: #000000;
+	background-image: -moz-linear-gradient(center bottom , #000000 50%, #00FFFF 100%)
+}
+a.BigButton .ButtonText, a.BigButton .ButtonDescription
+{
+	color: #00FF00;
+}
+a.BigButton:hover .ButtonText, a.BigButton:hover .ButtonDescription
+{
+	color: #00FFFF;
+}
+
+a.BigButton .ButtonText, span.BigButton .ButtonText
+{
+	font-size: 16pt;
+	font-weight: bold;
+	display: inline-block;
+}
+a.BigButton .ButtonDescription, span.BigButton .ButtonDescription
+{
+	font-size: 8pt;
+}
+span.BigButton
+{
+	border: solid 1px #333333;
+	background-color: #000000;
+	background-image: -moz-linear-gradient(center bottom , #000000 50%, #AAAAAA 100%);
+}
+span.BigButton .ButtonText, span.BigButton .ButtonDescription
+{
+	color: #AAAAAA;
+}
+input[type=submit], input[type=button], button, a.Button
+{
+	background-color: #000000;
+	border: solid 1px #00FF00;
+	color: #00FF00;
+	border-radius: 4px;
+	padding: 8px 16px 8px 16px;
+	background-image: -moz-linear-gradient(center bottom , #000000 50%, #00FF00 100%);
+}
+input[type=submit]:hover, input[type=button]:hover, button:hover, a.Button:hover
+{
+	border: solid 1px #00FFFF;
+	background-image: -moz-linear-gradient(center bottom , #000000 50%, #00FFFF 100%);
+	color: #00FFFF;
+	text-decoration: none;
+	cursor: default;
+}

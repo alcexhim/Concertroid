@@ -1,0 +1,8 @@
+input[type=text].Filter
+{
+	border: none 0px;
+}
+table tr.Filter td
+{
+	border-bottom: solid 1px #00C5C1;
+}

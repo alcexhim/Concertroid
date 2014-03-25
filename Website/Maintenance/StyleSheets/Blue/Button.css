@@ -1,0 +1,13 @@
+input[type=submit], input[type=reset], input[type=button]
+{
+	border: 1px solid #00C5C1;
+	width: 75px;
+	background-color: #CCE5E1;
+	font-family: inherit;
+	font-size: inherit;
+	height: 23px;
+}
+input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover
+{
+	background-color: #AAE5E1;
+}

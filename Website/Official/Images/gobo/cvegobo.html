@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title></title>
+		<style type="text/css">
+			body
+			{
+				background-color: #000000;
+			}
+			div.Gobo
+			{
+				width: 512px;
+				height: 512px;
+				
+				border-radius: 512px;
+				background-color: #FF0000;
+				background-image: url('cvegobo.png');
+			}
+		</style>
+		<script type="text/javascript">
+			function Gobo(id)
+			{
+				this.ID = id;
+				this.Colorize = function(color)
+				{
+					var gobo = document.getElementById("Gobo_" + this.ID);
+					gobo.style.backgroundColor = color;
+				};
+			}
+		</script>
+	</head>
+	<body>
+		<div id="Gobo_Gobo1" class="Gobo">&nbsp;</div>
+		<script type="text/javascript">
+			var gobo = new Gobo("Gobo1");
+			var colori = 0;
+			var colors = ["#FFFFFF", "#FF0000", "#00FF00", "#00FFFF", "#0000FF", "#FF00FF", "#FFFF00"];
+			var colorTimeout = 500;
+			
+			function animateGobo1()
+			{
+				gobo.Colorize(colors[colori]);
+				colori++;
+				if (colori >= colors.length) colori = 0;
+				window.setTimeout(animateGobo1, colorTimeout);
+			}
+			animateGobo1();
+		</script>
+	</body>
+</html>

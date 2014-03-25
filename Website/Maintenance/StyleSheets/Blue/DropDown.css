@@ -1,0 +1,86 @@
+div.DropDown
+{
+	border: solid 1px #00C5C1;
+}
+div.DropDown a.Button
+{
+	background-color: #FFFFFF;
+	border: solid 1px #00C5C1;
+}
+div.DropDown a.Button:hover
+{
+	background-color: #00C5C1;
+	color: #FFFFFF;
+}
+div.DropDown a.Button.Pressed
+{
+	border: solid 1px #000000;
+	background-color: #00A5A1;
+	color: #FFFFFF;
+}
+
+div.DropDown.SelectionRequired
+{
+	background: #feffff; /* Old browsers */
+	background: -moz-linear-gradient(top, #feffff 0%, #bffffa 50%, #00c5c1 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#feffff), color-stop(50%,#bffffa), color-stop(100%,#00c5c1)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #feffff 0%,#bffffa 50%,#00c5c1 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #feffff 0%,#bffffa 50%,#00c5c1 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #feffff 0%,#bffffa 50%,#00c5c1 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #feffff 0%,#bffffa 50%,#00c5c1 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#00c5c1',GradientType=0 ); /* IE6-9 */
+	
+    background-size: 1px 46px;
+	
+  -webkit-transition: background 0.2s ease-out;
+     -moz-transition: background 0.2s ease-out;
+       -o-transition: background 0.2s ease-out;
+          transition: background 0.2s ease-out;
+}
+div.DropDown.SelectionRequired:hover
+{
+	background-position: 0px -13px;
+}
+
+div.DropDown.SelectionRequired.Opened
+{
+  -webkit-transition: none;
+     -moz-transition: none;
+       -o-transition: none;
+          transition: none;
+}
+
+div.DropDown a.Button
+{
+	border-left: none 0px;
+	margin-left: 1px;
+}
+div.DropDown:hover a.Button
+{
+	border-left: solid 1px #00C5C1;
+	margin-left: 0px;
+}
+div.DropDown.SelectionRequired a.Button
+{
+	background: inherit;
+	border-left: none 0px;
+	margin-left: 1px;
+}
+div.DropDown.SelectionRequired:hover a.Button
+{
+	background: inherit;
+}
+div.DropDown.SelectionRequired a.Button:hover
+{
+	color: #000000;
+}
+div.DropDown.SelectionRequired.Opened, div.DropDown.SelectionRequired.Opened a.Button
+{
+	background: linear-gradient(to bottom, #00C5C1 0%, #BFFFFA 100%) repeat scroll 0% 0% transparent;
+}
+div.DropDown.SelectionRequired.Opened a.Button
+{
+	border: solid 1px #00C5C1;
+	border-left: none 0px;
+	color: #000000;
+}

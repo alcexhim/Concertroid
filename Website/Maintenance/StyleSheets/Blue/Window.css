@@ -1,0 +1,18 @@
+div.Window
+{
+	box-shadow: 2px 2px 8px #AAAAAA;
+	background-color: #FFFFFF;
+	opacity: 0.9;
+}
+div.Window div.TitleBar
+{
+	background-color: #00C5C1;
+	font-size: 10pt;
+	padding: 8px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+div.Window div.Content
+{
+	border: solid 1px #00C5C1;
+}

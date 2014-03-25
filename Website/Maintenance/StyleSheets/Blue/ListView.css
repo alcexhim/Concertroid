@@ -1,0 +1,34 @@
+.ListView
+{
+	border: solid 1px #00C5C1;
+}
+table.ListView td
+{
+	margin: 0px;
+	padding: 4px;
+	cursor: default;
+	transition: background-color 0.5s;
+}
+table.ListView tr.Alternate
+{
+	background-color: #DDFFFF;
+}
+table.ListView th
+{
+	background-color: #00C5C1;
+	color: #FFFFFF;
+}
+table.ListView tr th a
+{
+	padding: 8px;
+	color: #FFFFFF;
+}
+
+table.ListView tr:hover td
+{
+	background-color: #BBE5E1;
+}
+table.ListView tr.Filter:hover td
+{
+	background-color: inherit;
+}

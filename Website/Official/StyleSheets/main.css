@@ -1,0 +1,56 @@
+body
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 800px;
+	margin-top: 0px;
+}
+.noscript-show, .noscript-show *, noscript a img
+{
+	display: none;
+}
+div.Navigation a, div.Navigation span.Selected
+{
+	display: inline-block;
+	padding: 8px 8px 8px 8px;
+}
+div.Navigation a.NavigationLink, div.Navigation span.Selected
+{
+	padding: 8px 16px 8px 16px;
+	display: inline-block;
+}
+div.Navigation span.Selected
+{
+	cursor: default;
+}
+div.Content
+{
+	padding-top: 16px;
+	padding-bottom: 16px;
+}
+div.Footer
+{
+	position: fixed;
+	bottom: 0px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	
+	left: 0px;
+	right: 0px;
+	padding-left: 6px;
+	padding-right: 6px;
+	display: none;
+}
+a.BigButton, span.BigButton
+{
+	padding: 16px 16px 16px 16px;
+	
+	display: inline-block;
+	
+	text-decoration: none;
+}
+
+div.Picture div.PictureCaption
+{
+	font-size: 8pt;
+}

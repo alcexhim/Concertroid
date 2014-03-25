@@ -1,0 +1,56 @@
+a.BigButton .ButtonText, span.BigButton .ButtonText
+{
+	font-size: 16pt;
+	font-weight: bold;
+	display: inline-block;
+}
+a.BigButton .ButtonDescription, span.BigButton .ButtonDescription
+{
+	font-size: 8pt;
+}
+span.BigButton
+{
+	border: solid 1px #333333;
+	background-color: #000000;
+	background-image: -moz-linear-gradient(center bottom , #000000 50%, #AAAAAA 100%);
+}
+span.BigButton .ButtonText, span.BigButton .ButtonDescription
+{
+	color: #AAAAAA;
+}
+
+a.BigButton, span.BigButton
+{
+	border-radius: 4px;
+}
+a.BigButton, input[type=submit], input[type=button], button, a.Button
+{
+	border: solid 1px #96b6df;
+	background-color: #fbfbfb;
+	background-image: -moz-linear-gradient(center bottom , #FBFBFB 50%, #F4F4F3 100%);
+}
+a.BigButton:hover, input[type=submit]:hover, input[type=button]:hover, button:hover, a.Button:hover
+{
+	border: solid 1px #b0cbec;
+	background-color: #a2c1e7;
+	background-image: -moz-linear-gradient(center bottom , #84a9d8 50%, #a2c1e7 100%)
+}
+a.BigButton .ButtonText, a.BigButton .ButtonDescription
+{
+	color: #00FF00;
+}
+a.BigButton:hover .ButtonText, a.BigButton:hover .ButtonDescription
+{
+	color: #00FFFF;
+}
+input[type=submit], input[type=button], button, a.Button
+{
+	border-radius: 4px;
+	padding: 8px 16px 8px 16px;
+	/* background-image: -moz-linear-gradient(center bottom , #000000 50%, #00FF00 100%); */
+}
+input[type=submit]:hover, input[type=button]:hover, button:hover, a.Button:hover
+{
+	text-decoration: none;
+	cursor: default;
+}

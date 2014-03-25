@@ -1,0 +1,22 @@
+div.WebCommandList
+{
+	background-color: ThreeDFace;
+	margin-bottom: 16px;
+}
+div.WebCommandList a
+{
+	padding: 8px 8px 8px 8px;
+	display: inline-block;
+	margin: 4px 4px 4px 4px;
+	
+	border: solid 2px transparent;
+	background-color: ThreeDFace;
+	
+	color: #000000;
+	text-decoration: none;
+	cursor: default;
+}
+div.WebCommandList a:hover
+{
+	border: outset 2px ThreeDShadow;
+}

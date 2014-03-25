@@ -1,0 +1,30 @@
+div.Menu
+{
+	display: inline-block;
+	background-color: #FFFFFF;
+}
+div.Menu a, div.Menu span.MenuItem
+{
+	cursor: default;
+	display: block;
+	padding: 4px;
+	text-decoration: none;
+}
+div.Menu.Popup
+{
+	margin-left: 16px;
+}
+span.MenuLink a
+{
+	margin-right: 8px;
+}
+span.MenuItem
+{
+	display: block;
+	background-color: ThreeDFace;
+}
+span.MenuItemTitle
+{
+	font-weight: bold;
+	padding-right: 8px;
+}
