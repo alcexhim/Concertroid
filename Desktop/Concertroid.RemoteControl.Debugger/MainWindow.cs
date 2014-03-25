@@ -15,5 +15,10 @@ namespace Concertroid.RemoteControl
 		{
 			InitializeComponent();
 		}
+
+		private void mnuHelpAbout_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show("Concertroid Remote Debugger\r\nVersion " + (System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()) + "\r\n\r\nLicensed under the GNU General Public License version 3", "About Concertroid Remote Debugger", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
 	}
 }
