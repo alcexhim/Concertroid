@@ -11,7 +11,7 @@ using UniversalEditor.DataFormats.Multimedia3D.Motion.PolygonMovieMaker;
 using UniversalEditor.DataFormats.Multimedia3D.Motion.MotionVectorData;
 
 using Concertroid.Networking;
-using UniversalEditor.Accessors.File;
+using UniversalEditor.Accessors;
 
 namespace Concertroid.Renderer
 {
@@ -30,24 +30,14 @@ namespace Concertroid.Renderer
 			MotionObjectModel motion = new MotionObjectModel();
 			UniversalEditor.ObjectModel om = motion;
 
-			FileAccessor accessor1 = new FileAccessor(om, vmd);
-			accessor1.Open(@"C:\Applications\MikuMikuDance\UserFile\Motion\World is Mine.vmd");
-			accessor1.Load();
-			accessor1.Close();
+			FileAccessor accessor1 = new FileAccessor(@"C:\Applications\MikuMikuDance\UserFile\Motion\World is Mine.vmd", true, true);
+			FileAccessor accessor2 = new FileAccessor(@"C:\Applications\MikuMikuMoving\UserFile\Motion\World is Mine.mvd");
+			Document doc = new Document(motion, vmd, mvd, accessor1, accessor2);
 
-			motion = new UniversalEditor.ObjectModels.Multimedia3D.Motion.MotionObjectModel();
-			om = motion;
+			doc.InputAccessor.Open();
+			doc.Load();
+			doc.InputAccessor.Close();
 
-			FileAccessor accessor2 = new FileAccessor(om, mvd);
-			accessor2.Open(@"C:\Applications\MikuMikuMoving\UserFile\Motion\World is Mine.mvd");
-			accessor2.Load();
-			accessor2.Close();
-
-			accessor1.EnableWrite = true;
-			accessor1.ForceOverwrite = true;
-			accessor1.Open(@"C:\Applications\MikuMikuMoving\UserFile\Motion\World is Mine2.vmd");
-
-			vmd.Version = new Version(1, 0);
 			motion.CompatibleModelNames.Clear();
 			motion.CompatibleModelNames.Add("miku");
 
@@ -194,8 +184,9 @@ namespace Concertroid.Renderer
 			motion.ReplaceBoneNames("右髪４", "right hair4");
 			#endregion
 
-			accessor1.Save();
-			accessor1.Close();
+			doc.OutputAccessor.Open();
+			doc.Save();
+			doc.OutputAccessor.Close();
 		}
 
 		[STAThread()]

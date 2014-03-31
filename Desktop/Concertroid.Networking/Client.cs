@@ -10,6 +10,7 @@ using UniversalEditor.IO;
 using Concertroid.Networking.Requests;
 using Concertroid.Networking.Responses;
 using UniversalEditor.ObjectModels.Concertroid.Concert;
+using UniversalEditor.Accessors;
 
 namespace Concertroid.Networking
 {
@@ -30,11 +31,11 @@ namespace Concertroid.Networking
 		private Version mvarClientVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
 		public Version ClientVersion { get { return mvarClientVersion; } set { mvarClientVersion = value; } }
 
-		private BinaryReader mvarReader = null;
-		public BinaryReader Reader { get { return mvarReader; } }
+		private Reader mvarReader = null;
+		public Reader Reader { get { return mvarReader; } }
 
-		private BinaryWriter mvarWriter = null;
-        public BinaryWriter Writer { get { return mvarWriter; } }
+		private Writer mvarWriter = null;
+        public Writer Writer { get { return mvarWriter; } }
 
         TcpClient mvarUnderlyingClient = null;
         public TcpClient UnderlyingClient { get { return mvarUnderlyingClient; } }
@@ -60,9 +61,10 @@ namespace Concertroid.Networking
                 mvarUnderlyingClient.Connect(mvarHostNameOrIPAddress, mvarPortNumber);
 
                 NetworkStream ns = mvarUnderlyingClient.GetStream();
+				StreamAccessor sa = new StreamAccessor(ns);
 
-                mvarReader = new BinaryReader(ns);
-                mvarWriter = new BinaryWriter(ns);
+                mvarReader = new Reader(sa);
+                mvarWriter = new Writer(sa);
 
                 // Present the initial Hello
                 SendRequest(new IntroductionRequest(mvarClientVersion));
@@ -104,25 +106,25 @@ namespace Concertroid.Networking
         #region Private API
         private void SendRequest(Request request)
         {
-            BinaryWriter bw = mvarWriter;
-            bw.Write(CONCERTROID_SIGNAL_CLIENT);
+            Writer bw = mvarWriter;
+            bw.WriteBytes(CONCERTROID_SIGNAL_CLIENT);
 
             if (request is IntroductionRequest)
             {
                 IntroductionRequest ir = (request as IntroductionRequest);
-                bw.Write((byte)1);
-                bw.Write(ir.Version);
+                bw.WriteByte((byte)1);
+                bw.WriteVersion(ir.Version);
                 bw.Flush();
             }
             else if (request is ParameterRequest)
             {
                 ParameterRequest pr = (request as ParameterRequest);
-                bw.Write((byte)3);
-                bw.Write((byte)pr.Mode);
+                bw.WriteByte((byte)3);
+                bw.WriteByte((byte)pr.Mode);
                 bw.WriteNullTerminatedString(pr.ParameterName);
                 if (pr.Mode == ParameterRequestMode.Set)
                 {
-                    bw.Write((byte)pr.DataType);
+                    bw.WriteByte((byte)pr.DataType);
                     bw.WriteObject(pr.Value);
                 }
             }
@@ -134,7 +136,7 @@ namespace Concertroid.Networking
         }
         private Response GetResponse()
         {
-            BinaryReader br = mvarReader;
+            Reader br = mvarReader;
             
             byte respID = br.ReadByte();
             switch (respID)
