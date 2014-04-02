@@ -19,7 +19,7 @@ namespace Concertroid.Renderer
 	{
 		private static MainWindow mw = null;
 
-		private static AudioManager mvarAudioManager = new AudioManager();
+		private static AudioManager mvarAudioManager = null;
 		public static AudioManager AudioManager { get { return mvarAudioManager; } }
 
 		private static void ConvertVMD()
@@ -200,6 +200,16 @@ namespace Concertroid.Renderer
 
 				Application.Initialize();
 
+                try
+                {
+                    mvarAudioManager = new AudioManager();
+                }
+                catch
+                {
+                    System.Windows.Forms.MessageBox.Show("Could not initialize the audio subsystem.  Audio will be unavailable.", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                }
+
+
 
 				// load the libraries
 				// LibraryManager.Load();
@@ -209,6 +219,11 @@ namespace Concertroid.Renderer
 				// mw.FullScreen = true;
 				// mw.Hide();
 
+
+                int[] maxtexsize = new int[1];
+                Caltron.Internal.OpenGL.Methods.glGetIntegerv(Caltron.Internal.OpenGL.Constants.GL_MAX_TEXTURE_SIZE, maxtexsize);
+            
+
 				// Start the listener for the CR-Remote thread
 				Server server = new Server();
 				server.ServerName = "Concertroid Rendering Server";
@@ -216,8 +231,11 @@ namespace Concertroid.Renderer
 				server.RequestReceived += new RequestReceivedEventHandler(server_RequestReceived);
 				server.Start();
 
-				AudioManager.Load(@"Music/Background/BGM5.wav");
-				AudioManager.Play();
+                if (AudioManager != null)
+                {
+                    AudioManager.Load(@"Music/Background/BGM5.wav");
+                    AudioManager.Play();
+                }
 
 				Application.Start();
 #if !DEBUG
