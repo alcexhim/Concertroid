@@ -50,7 +50,7 @@ namespace Concertroid.Renderer
             LibraryXMLDataFormat xml = new LibraryXMLDataFormat();
             try
             {
-                FileAccessor.Load(FileName, mvarLibrary, xml, true);
+                Document.Load(mvarLibrary, xml, new FileAccessor(FileName), true);
             }
             catch (InvalidDataFormatException ex)
             {

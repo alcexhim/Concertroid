@@ -90,9 +90,9 @@
     <Compile Include="MainWindow.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Libraries\UniversalEditor\Plugins\UniversalEditor.Plugins.Concertroid\UniversalEditor.Plugins.Concertroid.csproj">
-      <Project>{d3bbda07-5088-454e-a16d-da24d8d88037}</Project>
-      <Name>UniversalEditor.Plugins.Concertroid</Name>
+    <ProjectReference Include="..\..\..\Joypad\Joypad\Joypad.csproj">
+      <Project>{0b359b15-3e70-4e33-892a-c7feb3af961d}</Project>
+      <Name>Joypad</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Libraries\UniversalEditor\Plugins\UniversalEditor.Plugins.Moosta\UniversalEditor.Plugins.Moosta.csproj">
       <Project>{10b9b771-9939-4d0b-8d47-501b6f60209f}</Project>
@@ -102,6 +102,10 @@
       <Project>{ed627df7-3e78-4428-ab31-810ba1586e62}</Project>
       <Name>Sanjigen</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Surodoine\Surodoine\Surodoine.csproj">
+      <Project>{e0897b7b-617a-4709-a4c6-fc0f6b441b2a}</Project>
+      <Name>Surodoine</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\UniversalEditor\CSharp\Libraries\UniversalEditor.Core\UniversalEditor.Core.csproj">
       <Project>{a92d520b-ffa3-4464-8cf6-474d18959e03}</Project>
       <Name>UniversalEditor.Core</Name>
@@ -109,6 +113,10 @@
     <ProjectReference Include="..\..\..\UniversalEditor\CSharp\Plugins\UniversalEditor.Essential\UniversalEditor.Essential.csproj">
       <Project>{30467e5c-05bc-4856-aadc-13906ef4cadd}</Project>
       <Name>UniversalEditor.Essential</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\UniversalEditor\CSharp\Plugins\UniversalEditor.Plugins.Concertroid\UniversalEditor.Plugins.Concertroid.csproj">
+      <Project>{d3bbda07-5088-454e-a16d-da24d8d88037}</Project>
+      <Name>UniversalEditor.Plugins.Concertroid</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\UniversalEditor\CSharp\Plugins\UniversalEditor.Plugins.Multimedia3D\UniversalEditor.Plugins.Multimedia3D.csproj">
       <Project>{4fd9db1d-76aa-48d1-8446-95376c4a2bc2}</Project>
