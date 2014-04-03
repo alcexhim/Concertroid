@@ -94,7 +94,7 @@
       <Project>{0b359b15-3e70-4e33-892a-c7feb3af961d}</Project>
       <Name>Joypad</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Libraries\UniversalEditor\Plugins\UniversalEditor.Plugins.Moosta\UniversalEditor.Plugins.Moosta.csproj">
+    <ProjectReference Include="..\..\..\UniversalEditor\CSharp\Plugins\UniversalEditor.Plugins.Moosta\UniversalEditor.Plugins.Moosta.csproj">
       <Project>{10b9b771-9939-4d0b-8d47-501b6f60209f}</Project>
       <Name>UniversalEditor.Plugins.Moosta</Name>
     </ProjectReference>
