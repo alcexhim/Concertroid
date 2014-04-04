@@ -52,11 +52,15 @@
     <Compile Include="Variable.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Libraries\UniversalEditor\Libraries\UniversalEditor.Core\UniversalEditor.Core.csproj">
+    <ProjectReference Include="..\..\..\UniversalEditor\CSharp\Libraries\UniversalEditor.Core\UniversalEditor.Core.csproj">
       <Project>{a92d520b-ffa3-4464-8cf6-474d18959e03}</Project>
       <Name>UniversalEditor.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Libraries\UniversalEditor\Plugins\UniversalEditor.Plugins.Concertroid\UniversalEditor.Plugins.Concertroid.csproj">
+    <ProjectReference Include="..\..\..\UniversalEditor\CSharp\Plugins\UniversalEditor.Essential\UniversalEditor.Essential.csproj">
+      <Project>{30467e5c-05bc-4856-aadc-13906ef4cadd}</Project>
+      <Name>UniversalEditor.Essential</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\UniversalEditor\CSharp\Plugins\UniversalEditor.Plugins.Concertroid\UniversalEditor.Plugins.Concertroid.csproj">
       <Project>{d3bbda07-5088-454e-a16d-da24d8d88037}</Project>
       <Name>UniversalEditor.Plugins.Concertroid</Name>
     </ProjectReference>

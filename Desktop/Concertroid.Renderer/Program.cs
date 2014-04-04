@@ -11,7 +11,7 @@ using UniversalEditor.DataFormats.Multimedia3D.Motion.PolygonMovieMaker;
 using UniversalEditor.DataFormats.Multimedia3D.Motion.MotionVectorData;
 
 using Concertroid.Networking;
-using UniversalEditor.Accessors.File;
+using UniversalEditor.Accessors;
 
 namespace Concertroid.Renderer
 {
@@ -19,7 +19,7 @@ namespace Concertroid.Renderer
 	{
 		private static MainWindow mw = null;
 
-		private static AudioManager mvarAudioManager = new AudioManager();
+		private static AudioManager mvarAudioManager = null;
 		public static AudioManager AudioManager { get { return mvarAudioManager; } }
 
 		private static void ConvertVMD()
@@ -30,24 +30,14 @@ namespace Concertroid.Renderer
 			MotionObjectModel motion = new MotionObjectModel();
 			UniversalEditor.ObjectModel om = motion;
 
-			FileAccessor accessor1 = new FileAccessor(om, vmd);
-			accessor1.Open(@"C:\Applications\MikuMikuDance\UserFile\Motion\World is Mine.vmd");
-			accessor1.Load();
-			accessor1.Close();
+			FileAccessor accessor1 = new FileAccessor(@"C:\Applications\MikuMikuDance\UserFile\Motion\World is Mine.vmd", true, true);
+			FileAccessor accessor2 = new FileAccessor(@"C:\Applications\MikuMikuMoving\UserFile\Motion\World is Mine.mvd");
+			Document doc = new Document(motion, vmd, mvd, accessor1, accessor2);
 
-			motion = new UniversalEditor.ObjectModels.Multimedia3D.Motion.MotionObjectModel();
-			om = motion;
+			doc.InputAccessor.Open();
+			doc.Load();
+			doc.InputAccessor.Close();
 
-			FileAccessor accessor2 = new FileAccessor(om, mvd);
-			accessor2.Open(@"C:\Applications\MikuMikuMoving\UserFile\Motion\World is Mine.mvd");
-			accessor2.Load();
-			accessor2.Close();
-
-			accessor1.EnableWrite = true;
-			accessor1.ForceOverwrite = true;
-			accessor1.Open(@"C:\Applications\MikuMikuMoving\UserFile\Motion\World is Mine2.vmd");
-
-			vmd.Version = new Version(1, 0);
 			motion.CompatibleModelNames.Clear();
 			motion.CompatibleModelNames.Add("miku");
 
@@ -194,8 +184,9 @@ namespace Concertroid.Renderer
 			motion.ReplaceBoneNames("右髪４", "right hair4");
 			#endregion
 
-			accessor1.Save();
-			accessor1.Close();
+			doc.OutputAccessor.Open();
+			doc.Save();
+			doc.OutputAccessor.Close();
 		}
 
 		[STAThread()]
@@ -209,6 +200,16 @@ namespace Concertroid.Renderer
 
 				Application.Initialize();
 
+                try
+                {
+                    mvarAudioManager = new AudioManager();
+                }
+                catch
+                {
+                    System.Windows.Forms.MessageBox.Show("Could not initialize the audio subsystem.  Audio will be unavailable.", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                }
+
+
 
 				// load the libraries
 				// LibraryManager.Load();
@@ -218,6 +219,11 @@ namespace Concertroid.Renderer
 				// mw.FullScreen = true;
 				// mw.Hide();
 
+
+                int[] maxtexsize = new int[1];
+                Caltron.Internal.OpenGL.Methods.glGetIntegerv(Caltron.Internal.OpenGL.Constants.GL_MAX_TEXTURE_SIZE, maxtexsize);
+            
+
 				// Start the listener for the CR-Remote thread
 				Server server = new Server();
 				server.ServerName = "Concertroid Rendering Server";
@@ -225,8 +231,11 @@ namespace Concertroid.Renderer
 				server.RequestReceived += new RequestReceivedEventHandler(server_RequestReceived);
 				server.Start();
 
-				AudioManager.Load(@"Music/Background/BGM5.wav");
-				AudioManager.Play();
+                if (AudioManager != null)
+                {
+                    AudioManager.Load(@"Music/Background/BGM5.wav");
+                    AudioManager.Play();
+                }
 
 				Application.Start();
 #if !DEBUG

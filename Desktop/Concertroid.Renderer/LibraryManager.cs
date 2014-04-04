@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 using UniversalEditor;
-using UniversalEditor.Accessors.File;
+using UniversalEditor.Accessors;
 
 using UniversalEditor.ObjectModels.Concertroid.Library;
 using UniversalEditor.DataFormats.Concertroid.Library;
@@ -50,7 +50,7 @@ namespace Concertroid.Renderer
             LibraryXMLDataFormat xml = new LibraryXMLDataFormat();
             try
             {
-                FileAccessor.Load(FileName, mvarLibrary, xml, true);
+                Document.Load(mvarLibrary, xml, new FileAccessor(FileName), true);
             }
             catch (InvalidDataFormatException ex)
             {

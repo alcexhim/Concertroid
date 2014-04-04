@@ -7,6 +7,7 @@ using System.Threading;
 using UniversalEditor.IO;
 using Concertroid.Networking.Requests;
 using Concertroid.Networking.Responses;
+using UniversalEditor.Accessors;
 
 namespace Concertroid.Networking
 {
@@ -72,11 +73,11 @@ namespace Concertroid.Networking
             if (ExceptionThrown != null) ExceptionThrown(this, e);
         }
 
-        private BinaryReader mvarReader = null;
-        public BinaryReader Reader { get { return mvarReader; } }
+        private Reader mvarReader = null;
+        public Reader Reader { get { return mvarReader; } }
 
-        private BinaryWriter mvarWriter = null;
-        public BinaryWriter Writer { get { return mvarWriter; } }
+        private Writer mvarWriter = null;
+        public Writer Writer { get { return mvarWriter; } }
 
 		private void threadClient_ParameterizedThreadStart(object param)
 		{
@@ -84,8 +85,10 @@ namespace Concertroid.Networking
 			if (client != null)
 			{
                 NetworkStream ns = client.GetStream();
-                mvarReader = new BinaryReader(ns);
-                mvarWriter = new BinaryWriter(ns);
+				StreamAccessor sa = new StreamAccessor(ns);
+
+                mvarReader = new Reader(sa);
+                mvarWriter = new Writer(sa);
 
                 ClientConnectedEventArgs ce = new ClientConnectedEventArgs(client);
 				OnClientConnected(ce);
@@ -121,7 +124,7 @@ namespace Concertroid.Networking
 
         private Request GetRequest()
         {
-            BinaryReader br = mvarReader;
+            Reader br = mvarReader;
             byte requestTypeID = br.ReadByte();
             switch (requestTypeID)
             {
@@ -159,21 +162,21 @@ namespace Concertroid.Networking
         }
         private void SendResponse(Response response)
         {
-            BinaryWriter bw = mvarWriter;
+            Writer bw = mvarWriter;
             if (response is IntroductionResponse)
             {
                 IntroductionResponse ir = (response as IntroductionResponse);
-                bw.Write((byte)1);
-                bw.Write(ir.Version);
+                bw.WriteByte((byte)1);
+                bw.WriteVersion(ir.Version);
                 bw.WriteNullTerminatedString(ir.ServerName);
                 bw.Flush();
             }
             else if (response is ParameterResponse)
             {
                 ParameterResponse pr = (response as ParameterResponse);
-                bw.Write((byte)3);
+                bw.WriteByte((byte)3);
                 bw.WriteNullTerminatedString(pr.Name);
-                bw.Write((byte)pr.DataType);
+                bw.WriteByte((byte)pr.DataType);
                 bw.WriteObject(pr.Value, pr.DataType);
             }
         }

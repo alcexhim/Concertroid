@@ -9,7 +9,7 @@ namespace Concertroid.Networking
 {
     public static class ExtensionMethods
     {
-        public static object ReadObject(this BinaryReader br, DataType type)
+        public static object ReadObject(this Reader br, DataType type)
         {
             switch (type)
             {
@@ -45,14 +45,14 @@ namespace Concertroid.Networking
             }
             throw new InvalidOperationException();
         }
-        public static void WriteObject(this BinaryWriter bw, object value, DataType type)
+        public static void WriteObject(this Writer bw, object value, DataType type)
         {
             switch (type)
             {
                 case DataType.Array:
                 {
                     object[] array = (value as object[]);
-                    bw.Write((uint)array.LongLength);
+                    bw.WriteUInt32((uint)array.LongLength);
 
                     DataType dataType = array.GetType().ToDataType();
                     bw.Write(dataType);
@@ -62,29 +62,29 @@ namespace Concertroid.Networking
                     }
                     break;
                 }
-                case DataType.Boolean: bw.Write((Boolean)value); break;
-                case DataType.Byte: bw.Write((Byte)value); break;
-                case DataType.Char: bw.Write((Char)value); break;
-                case DataType.DateTime: bw.Write((DateTime)value); break;
-                case DataType.Decimal: bw.Write((Decimal)value); break;
-                case DataType.Double: bw.Write((Double)value); break;
-                case DataType.Guid: bw.Write((Guid)value); break;
-                case DataType.Int16: bw.Write((Int16)value); break;
-                case DataType.Int32: bw.Write((Int32)value); break;
-                case DataType.Int64: bw.Write((Int64)value); break;
-                case DataType.SByte: bw.Write((SByte)value); break;
-                case DataType.Single: bw.Write((Single)value); break;
+                case DataType.Boolean: bw.WriteBoolean((Boolean)value); break;
+                case DataType.Byte: bw.WriteByte((Byte)value); break;
+                case DataType.Char: bw.WriteChar((Char)value); break;
+                case DataType.DateTime: bw.WriteDateTime((DateTime)value); break;
+                case DataType.Decimal: bw.WriteDecimal((Decimal)value); break;
+                case DataType.Double: bw.WriteDouble((Double)value); break;
+                case DataType.Guid: bw.WriteGuid((Guid)value); break;
+                case DataType.Int16: bw.WriteInt16((Int16)value); break;
+                case DataType.Int32: bw.WriteInt32((Int32)value); break;
+                case DataType.Int64: bw.WriteInt64((Int64)value); break;
+                case DataType.SByte: bw.WriteSByte((SByte)value); break;
+                case DataType.Single: bw.WriteSingle((Single)value); break;
                 case DataType.String: bw.WriteNullTerminatedString((String)value); break;
-                case DataType.UInt16: bw.Write((UInt16)value); break;
-                case DataType.UInt32: bw.Write((UInt32)value); break;
-                case DataType.UInt64: bw.Write((UInt64)value); break;
-                case DataType.Version: bw.Write((Version)value); break;
+                case DataType.UInt16: bw.WriteUInt16((UInt16)value); break;
+                case DataType.UInt32: bw.WriteUInt32((UInt32)value); break;
+                case DataType.UInt64: bw.WriteUInt64((UInt64)value); break;
+                case DataType.Version: bw.WriteVersion((Version)value); break;
             }
             throw new InvalidOperationException();
         }
-        public static void Write(this BinaryWriter bw, DataType dataType)
+        public static void Write(this Writer bw, DataType dataType)
         {
-            bw.Write((byte)dataType);
+            bw.WriteByte((byte)dataType);
         }
         public static DataType ToDataType(this Type type)
         {
