@@ -289,7 +289,7 @@ namespace Concertroid.Renderer
                     string name = ctlModel.Model.Bones[i].Name;
                     if (ctlModel.Model.StringTable.ContainsKey(1033))
                     {
-                        name = ctlModel.Model.StringTable[1033].BoneNames[i];
+                        // name = ctlModel.Model.StringTable[1033].BoneNames[i];
                     }
                     cboBone.Items.Add(name, ctlModel.Model.Bones[i]);
                 }
