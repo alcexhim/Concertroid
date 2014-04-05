@@ -16,7 +16,7 @@ namespace Concertroid.Renderer.Controls
 
             double scale = 0.8;
             double width = 1024 * scale;
-            double height = 400 * scale;
+            double height = 512 * scale;
             this.Size = new Dimension2D(width, height);
         }
 
