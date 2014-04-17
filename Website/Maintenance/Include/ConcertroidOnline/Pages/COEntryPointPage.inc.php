@@ -17,7 +17,7 @@
 <div style="width: 512px; padding-top: 32px; margin-left: auto; margin-right: auto; text-align: center; font-family: Segoe UI; font-weight: lighter; font-size: 16pt; color: #FFFFFF;">
 	<h1>Concertroid Online</h1>
 	
-	<img src="<?php echo(System::ExpandRelativePath("~/images/icons/mainicon.png")); ?>" alt="Concertroid Studio" /><br />
+	<img src="<?php echo(System::ExpandRelativePath("~/Images/Icons/MainIcon.png")); ?>" alt="Concertroid Studio" /><br />
 	
 	<p>
 		Have a Concertroid Online hosted solution? Contact your solution administrator for your login details.
