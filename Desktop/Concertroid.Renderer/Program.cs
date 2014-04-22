@@ -197,47 +197,54 @@ namespace Concertroid.Renderer
 			try
 			{
 #endif
-
+			try
+			{
 				Application.Initialize();
+			}
+			catch (DllNotFoundException ex)
+			{
+				System.Windows.Forms.MessageBox.Show("Could not initialize the rendering subsystem.  Please make sure OpenGL and FreeGLUT are installed on your machine.", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+				return;
+			}
 
-                try
-                {
-                    mvarAudioManager = new AudioManager();
-                }
-                catch
-                {
-                    System.Windows.Forms.MessageBox.Show("Could not initialize the audio subsystem.  Audio will be unavailable.", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
-                }
-
-
-
-				// load the libraries
-				// LibraryManager.Load();
-
-
-				mw = new MainWindow();
-				// mw.FullScreen = true;
-				// mw.Hide();
+            try
+            {
+                mvarAudioManager = new AudioManager();
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Could not initialize the audio subsystem.  Audio will be unavailable.", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+            }
 
 
-                int[] maxtexsize = new int[1];
-                Caltron.Internal.OpenGL.Methods.glGetIntegerv(Caltron.Internal.OpenGL.Constants.GL_MAX_TEXTURE_SIZE, maxtexsize);
+
+			// load the libraries
+			// LibraryManager.Load();
+
+
+			mw = new MainWindow();
+			// mw.FullScreen = true;
+			// mw.Hide();
+
+
+            int[] maxtexsize = new int[1];
+            Caltron.Internal.OpenGL.Methods.glGetIntegerv(Caltron.Internal.OpenGL.Constants.GL_MAX_TEXTURE_SIZE, maxtexsize);
             
 
-				// Start the listener for the CR-Remote thread
-				Server server = new Server();
-				server.ServerName = "Concertroid Rendering Server";
-				server.ExceptionThrown += server_ExceptionThrown;
-				server.RequestReceived += new RequestReceivedEventHandler(server_RequestReceived);
-				server.Start();
+			// Start the listener for the CR-Remote thread
+			Server server = new Server();
+			server.ServerName = "Concertroid Rendering Server";
+			server.ExceptionThrown += server_ExceptionThrown;
+			server.RequestReceived += new RequestReceivedEventHandler(server_RequestReceived);
+			server.Start();
 
-                if (AudioManager != null)
-                {
-                    AudioManager.Load(@"Music/Background/BGM5.wav");
-                    AudioManager.Play();
-                }
+            if (AudioManager != null)
+            {
+                AudioManager.Load(@"Music/Background/BGM5.wav");
+                AudioManager.Play();
+            }
 
-				Application.Start();
+			Application.Start();
 #if !DEBUG
 			}
 			catch (Exception ex)

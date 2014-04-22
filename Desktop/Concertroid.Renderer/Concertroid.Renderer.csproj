@@ -126,6 +126,10 @@
       <Project>{be4d0ba3-0888-42a5-9c09-fc308a4509d2}</Project>
       <Name>UniversalEditor.Plugins.Multimedia</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Concertroid.Mathematics\Concertroid.Mathematics.csproj">
+      <Project>{73218aab-5427-4551-b379-0cea72b1a649}</Project>
+      <Name>Concertroid.Mathematics</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Concertroid.Networking\Concertroid.Networking.csproj">
       <Project>{6184C22E-52E8-4C92-B0D0-0424FC84AD99}</Project>
       <Name>Concertroid.Networking</Name>
