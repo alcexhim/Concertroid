@@ -240,8 +240,16 @@ namespace Concertroid.Renderer
 
             if (AudioManager != null)
             {
-                AudioManager.Load(@"Music/Background/BGM5.wav");
-                AudioManager.Play();
+				string audioFileName = @"Music/Background/BGM5.wav";
+				if (System.IO.File.Exists (audioFileName))
+				{
+	                AudioManager.Load(audioFileName);
+	                AudioManager.Play();
+				}
+				else
+				{
+					Console.WriteLine ("Cannot play audio file: '" + audioFileName + "'");
+				}
             }
 
 			Application.Start();
