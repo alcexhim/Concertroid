@@ -22,6 +22,9 @@ namespace Concertroid.Renderer
 		private static AudioManager mvarAudioManager = null;
 		public static AudioManager AudioManager { get { return mvarAudioManager; } }
 
+		public static string MainID = "CROS-7271136B8992A04F";
+		public static string KeychipID = null;
+
 		private static void ConvertVMD()
 		{
 			MVDMotionDataFormat mvd = new MVDMotionDataFormat();
@@ -206,6 +209,23 @@ namespace Concertroid.Renderer
 				System.Windows.Forms.MessageBox.Show("Could not initialize the rendering subsystem.  Please make sure OpenGL and FreeGLUT are installed on your machine.", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
 				return;
 			}
+
+			// KeychipID = "CR39-17482A01FF3C01A8";
+			/*
+			System.IO.Ports.SerialPort port = new System.IO.Ports.SerialPort("COM1");
+			try
+			{
+				port.Open();
+				if (port.BytesToRead > 2)
+				{
+					string w = port.ReadLine();
+					KeychipID = w;
+				}
+			}
+			catch (Exception ex)
+			{
+			}
+			*/
 
             try
             {
