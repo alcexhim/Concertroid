@@ -17,7 +17,10 @@ namespace Concertroid.Renderer
 	{
 		public MainWindow()
 		{
-			base.IconHandle = Properties.Resources.MainIcon.Handle;
+			if (Properties.Resources.MainIcon != null)
+			{
+				base.IconHandle = Properties.Resources.MainIcon.Handle;
+			}
 			// base.Size = new Dimension2D(640, 480);
 			base.Text = "Concertroid Renderer - v" + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString() + " - " + System.Environment.OSVersion.VersionString;
 			// base.AlwaysRender = true;
