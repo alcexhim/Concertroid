@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Concertroid.Renderer", "Concertroid.Renderer\Concertroid.Renderer.csproj", "{40F9FEF7-08C2-4B97-8346-1CFC7000F561}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeControls", "..\..\AwesomeControls\AwesomeControls\AwesomeControls.csproj", "{617D9EB5-CA93-45D6-AA6B-5A012B7698AC}"
