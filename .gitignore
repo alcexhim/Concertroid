@@ -158,3 +158,5 @@ pingme.txt
 Website/Maintenance/Include/Configuration.inc.php
 Website/Official/Include/Configuration.inc.php
 
+# MonoDevelop crap
+*.userprefs
