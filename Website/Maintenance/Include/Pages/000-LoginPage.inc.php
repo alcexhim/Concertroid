@@ -10,6 +10,12 @@
 	{
 		public $InvalidCredentials;
 		
+		public function __construct()
+		{
+			parent::__construct();
+			$this->RenderRibbon = false;
+		}
+		
 		protected function RenderContent()
 		{
 		?>
