@@ -100,18 +100,27 @@
 			$page = new WebPage();
 			$page->BeginContent();
 			
-			$btng = new ButtonGroup("btng1");
-			$btng->Items[] = new ButtonGroupButton("btnDataCenters", "Data Centers", null, "~/Images/Buttons/DataCenters.png", "~/datacenter");
-			$btng->Items[] = new ButtonGroupButton("btnDataTypes", "Data Types", null, "~/Images/Buttons/DataTypes.png", "~/datatype");
-			$btng->Items[] = new ButtonGroupButton("btnTenantTypes", "Tenant Types", null, "~/Images/Buttons/TenantTypes.png", "~/tenanttype");
-			$btng->Items[] = new ButtonGroupButton("btnTenants", "Tenants", null, "~/Images/Buttons/Tenants.png", "~/tenant");
-			$btng->Items[] = new ButtonGroupButton("btnModules", "Modules", null, "~/Images/Buttons/Modules.png", "~/module");
-			$btng->Render();
+			if (System::$TenantName == "system")
+			{
+				$btng = new ButtonGroup("btng1");
+				$btng->Items[] = new ButtonGroupButton("btnDataCenters", "Data Centers", null, "~/Images/Buttons/DataCenters.png", "~/datacenter");
+				$btng->Items[] = new ButtonGroupButton("btnDataTypes", "Data Types", null, "~/Images/Buttons/DataTypes.png", "~/datatype");
+				$btng->Items[] = new ButtonGroupButton("btnTenantTypes", "Tenant Types", null, "~/Images/Buttons/TenantTypes.png", "~/tenanttype");
+				$btng->Items[] = new ButtonGroupButton("btnTenants", "Tenants", null, "~/Images/Buttons/Tenants.png", "~/tenant");
+				$btng->Items[] = new ButtonGroupButton("btnModules", "Modules", null, "~/Images/Buttons/Modules.png", "~/module");
+				$btng->Render();
+			}
+			else
+			{
+				// TODO: get the user's preferred page and display it here
+			}
 			
 			$page->EndContent();
 		}),
 		new ModulePage("debug", function($path)
 		{
+			if (System::$TenantName != "system") return false;
+			
 			global $MySQL;
 			
 			$page = new WebPage();
@@ -297,12 +306,16 @@
 		(
 			new ModulePage("", function($path)
 			{
+				if (System::$TenantName != "system") return false;
+				
 				$page = new MainPage();
 				$page->Render();
 				return true;
 			}),
 			new ModulePage("create", function($path)
 			{
+				if (System::$TenantName != "system") return false;
+				
 				if ($_SERVER["REQUEST_METHOD"] === "POST")
 				{
 					$tenant_URL = $_POST["tenant_URL"];
@@ -345,6 +358,8 @@
 			}),
 			new ModulePage("modify", function($path)
 			{
+				if (System::$TenantName != "system") return false;
+				
 				if ($_SERVER["REQUEST_METHOD"] === "POST")
 				{
 					$tenant_URL = $_POST["tenant_URL"];
@@ -382,6 +397,8 @@
 			}),
 			new ModulePage("clone", function($path)
 			{
+				if (System::$TenantName != "system") return false;
+				
 				if ($_SERVER["REQUEST_METHOD"] === "POST")
 				{
 					$tenant_URL = $_POST["tenant_URL"];
@@ -414,6 +431,8 @@
 			}),
 			new ModulePage("delete", function($path)
 			{
+				if (System::$TenantName != "system") return false;
+				
 				if ($_SERVER["REQUEST_METHOD"] === "POST")
 				{
 					if ($_POST["Confirm"] == "1")
@@ -441,6 +460,8 @@
 			}),
 			new ModulePage("manage", function($path)
 			{
+				if (System::$TenantName != "system") return false;
+				
 				if ($path[1] == "")
 				{
 					$tenant = Tenant::GetByURL($path[0]);
@@ -580,6 +601,8 @@
 			}),
 			new ModulePage("launch", function($path)
 			{
+				if (System::$TenantName != "system") return false;
+				
 				$tenant = Tenant::GetByURL($path[0]);
 				header("Location: http://" . $tenant->DataCenters->Items[0]->HostName . "/" . $tenant->URL);
 			})
@@ -588,12 +611,16 @@
 		(
 			new ModulePage("", function($path)
 			{
+				if (System::$TenantName != "system") return false;
+				
 				$page = new ModuleMainPage();
 				$page->Render();
 				return true;
 			}),
 			new ModulePage("modify", function($path)
 			{
+				if (System::$TenantName != "system") return false;
+				
 				$module = \Objectify\Objects\Module::GetByID($path[0], true);
 				if ($_SERVER["REQUEST_METHOD"] == "POST")
 				{
@@ -616,12 +643,16 @@
 		(
 			new ModulePage("", function($path)
 			{
+				if (System::$TenantName != "system") return false;
+				
 				$page = new DataCenterMainPage();
 				$page->Render();
 				return true;
 			}),
 			new ModulePage("create", function($path)
 			{
+				if (System::$TenantName != "system") return false;
+				
 				$datacenter = new DataCenter();
 				if ($_SERVER["REQUEST_METHOD"] == "POST")
 				{
@@ -642,6 +673,8 @@
 			}),
 			new ModulePage("modify", function($path)
 			{
+				if (System::$TenantName != "system") return false;
+				
 				$datacenter = DataCenter::GetByID($path[0]);
 				if ($_SERVER["REQUEST_METHOD"] == "POST")
 				{

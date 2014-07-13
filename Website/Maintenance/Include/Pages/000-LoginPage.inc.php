@@ -3,6 +3,10 @@
 	
 	use WebFX\System;
 	
+	use WebFX\Controls\Window;
+	use WebFX\HorizontalAlignment;
+	use WebFX\VerticalAlignment;
+	
 	use Objectify\Tenant\MasterPages\WebPage;
 	use Objectify\Objects\Tenant;
 	
@@ -13,15 +17,21 @@
 		public function __construct()
 		{
 			parent::__construct();
-			$this->RenderRibbon = false;
+			$this->RenderChrome = false;
 		}
 		
 		protected function RenderContent()
 		{
 		?>
-		<h1>Authentication Required</h1>
-		<p>You must log in to view this page.</p>
 		<form method="POST">
+		<?php
+			$wndAuthReq = new Window("wndAuthReq");
+			$wndAuthReq->Title = "Authentication Required";
+			$wndAuthReq->HorizontalAlignment = HorizontalAlignment::Center;
+			$wndAuthReq->VerticalAlignment = VerticalAlignment::Middle;
+			$wndAuthReq->BeginContent();
+		?>
+			<p>You must log in to view this page.</p>
 			<table style="margin-left: auto; margin-right: auto;" class="Borderless">
 				<tr>
 					<td><label for="txtUserName">User <u>N</u>ame</label></td>
@@ -41,12 +51,15 @@
 					?>
 					</td>
 				</tr>
-				<tr>
-					<td colspan="2" style="text-align: right;">
-						<input type="submit" value="Continue" />
-					</td>
-				</tr>
 			</table>
+		<?php
+			$wndAuthReq->BeginButtons();
+		?>
+			<input type="submit" value="Continue" />
+		<?php
+			$wndAuthReq->EndButtons();
+			$wndAuthReq->EndContent();
+		?>
 		</form>
 		<?php
 		}

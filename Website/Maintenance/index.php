@@ -33,6 +33,8 @@
 	use WebFX\System;
 	use WebFX\IncludeFile;
 	
+	System::$EnableTenantedHosting = true;
+	
 	// Tell WebFX that we are ready to launch the application. This cycles through
 	// all of the modules (usually you will define your main application content in
 	// 000-Default) and executes the first module page that corresponds to the path
