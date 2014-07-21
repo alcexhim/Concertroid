@@ -39,6 +39,19 @@
 	use Objectify\Objects\TenantStatus;
 	use Objectify\Objects\TenantType;
 	use Objectify\Objects\TenantObjectMethodParameterValue;
+
+	System::$UnspecifiedTenantErrorHandler = function()
+	{
+		$page = new \WebFX\WebPage();
+		$page->BeginContent();
+		?>
+		<div style="padding-top: 96px; text-align: center;">
+			<div style="font-size: 24pt; font-family: 'Segoe UI Light', 'Open Sans Light', 'Segoe UI', 'Open Sans'; font-weight: lighter; padding-bottom: 32px;">Concertroid Online</div>
+			<div style="font-size: 12pt; font-family: 'Segoe UI', 'Open Sans';">Have a Concertroid Online hosted solution? Contact your vendor for assistance.</div>
+		</div>
+		<?php
+		$page->EndContent();
+	};
 	
 	function IsConfigured()
 	{
