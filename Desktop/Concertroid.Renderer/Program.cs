@@ -24,6 +24,9 @@ namespace Concertroid.Renderer
 
 		public static string MainID = "CROS-7271136B8992A04F";
 		public static string KeychipID = null;
+		
+		private static Font mvarLargeFont = null;
+		public static Font LargeFont { get { return mvarLargeFont; } }
 
 		private static void ConvertVMD()
 		{
@@ -271,6 +274,8 @@ namespace Concertroid.Renderer
 					Console.WriteLine ("Cannot play audio file: '" + audioFileName + "'");
 				}
             }
+				
+				mvarLargeFont = new BitmapFont("Fonts/System.txf");
 
 			Application.Start();
 #if !DEBUG
