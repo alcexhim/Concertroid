@@ -60,10 +60,16 @@ namespace Concertroid.Networking
 
 			while (true)
 			{
-				TcpClient client = listener.AcceptTcpClient();
-				
-				Thread threadClient = new Thread(threadClient_ParameterizedThreadStart);
-				threadClient.Start(client);
+				try
+				{
+					TcpClient client = listener.AcceptTcpClient();
+					
+					Thread threadClient = new Thread(threadClient_ParameterizedThreadStart);
+					threadClient.Start(client);
+				}
+				catch (Exception ex)
+				{
+				}
 			}
 		}
 
