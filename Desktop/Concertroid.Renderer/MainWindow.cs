@@ -352,7 +352,7 @@ namespace Concertroid.Renderer
 			bFlash = !bFlash;
 			Refresh();
 		}
-		protected override void OnBeforeRender(RenderEventArgs e)
+		protected override void OnBeforeRender(BeforeRenderEventArgs e)
 		{
 			base.OnBeforeRender(e);
 			if (mvarDebugMode)
@@ -367,6 +367,11 @@ namespace Concertroid.Renderer
 		protected override void OnAfterRender(RenderEventArgs e)
 		{
 			base.OnAfterRender(e);
+			
+			e.Canvas.Color = Color.FromRGBA (255, 255, 0, 255);
+			e.Canvas.DrawText ("Hello!", 0, 0, 1.0, 1.0f, Program.LargeFont);
+			
+			return;
 
 			if (FullScreen)
 			{
@@ -382,14 +387,14 @@ namespace Concertroid.Renderer
 				bool lightmode = e.Canvas.EnableLighting;
 				e.Canvas.EnableLighting = false;
 				e.Canvas.Color = Colors.Red;
-				e.Canvas.DrawText("PAUSED", 16, 16, 0.1f, 1.0f);
+				e.Canvas.DrawText("PAUSED", 16, 16, 0.1f, 1.0f, Program.LargeFont);
 				e.Canvas.EnableLighting = lightmode;
 			}
 			else
 			{
 				e.Canvas.Color = Colors.DarkGray;
-				e.Canvas.DrawText("KEYCHIP ID: ", (Width - 320), Height - 48, 0.1);
-				e.Canvas.DrawText("MAIN ID:", (Width - 320), Height - 24, 0.1);
+				e.Canvas.DrawText("KEYCHIP ID: ", (Width - 320), Height - 48, 0.1, 1.0f, Program.LargeFont);
+				e.Canvas.DrawText("MAIN ID:", (Width - 320), Height - 24, 0.1, 1.0f, Program.LargeFont);
 
 				if (Program.KeychipID == null)
 				{
@@ -401,15 +406,15 @@ namespace Concertroid.Renderer
 					{
 						e.Canvas.Color = Colors.DarkGray;
 					}
-					e.Canvas.DrawText("(NOT PRESENT)", (Width - 160), Height - 48, 0.1);
+					e.Canvas.DrawText("(NOT PRESENT)", (Width - 160), Height - 48, 0.1, 1.0f, Program.LargeFont);
 				}
 				else
 				{
-					e.Canvas.DrawText(Program.KeychipID, (Width - 160), Height - 48, 0.1);
+					e.Canvas.DrawText(Program.KeychipID, (Width - 160), Height - 48, 0.1, 1.0f, Program.LargeFont);
 				}
 
 				e.Canvas.Color = Colors.DarkGray;
-				e.Canvas.DrawText(Program.MainID, (Width - 160), Height - 24, 0.1);
+				e.Canvas.DrawText(Program.MainID, (Width - 160), Height - 24, 0.1, 1.0f, Program.LargeFont);
 			}
 		}
 
