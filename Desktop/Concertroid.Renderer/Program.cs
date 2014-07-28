@@ -230,14 +230,14 @@ namespace Concertroid.Renderer
 			}
 			*/
 
-            try
-            {
-                mvarAudioManager = new AudioManager();
-            }
-            catch
-            {
-                System.Windows.Forms.MessageBox.Show("Could not initialize the audio subsystem.  Audio will be unavailable.", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
-            }
+			try
+			{
+				mvarAudioManager = new AudioManager();
+			}
+			catch
+			{
+				System.Windows.Forms.MessageBox.Show("Could not initialize the audio subsystem.  Audio will be unavailable.", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+			}
 
 
 
@@ -250,9 +250,9 @@ namespace Concertroid.Renderer
 			// mw.Hide();
 
 
-            int[] maxtexsize = new int[1];
-            Caltron.Internal.OpenGL.Methods.glGetIntegerv(Caltron.Internal.OpenGL.Constants.GL_MAX_TEXTURE_SIZE, maxtexsize);
-            
+			int[] maxtexsize = new int[1];
+			Caltron.Internal.OpenGL.Methods.glGetIntegerv(Caltron.Internal.OpenGL.Constants.GL_MAX_TEXTURE_SIZE, maxtexsize);
+			
 
 			// Start the listener for the CR-Remote thread
 			Server server = new Server();
@@ -261,21 +261,21 @@ namespace Concertroid.Renderer
 			server.RequestReceived += new RequestReceivedEventHandler(server_RequestReceived);
 			server.Start();
 
-            if (AudioManager != null)
-            {
+			if (AudioManager != null)
+			{
 				string audioFileName = @"Music/Background/BGM5.wav";
 				if (System.IO.File.Exists (audioFileName))
 				{
-	                AudioManager.Load(audioFileName);
-	                AudioManager.Play();
+					AudioManager.Load(audioFileName);
+					AudioManager.Play();
 				}
 				else
 				{
 					Console.WriteLine ("Cannot play audio file: '" + audioFileName + "'");
 				}
-            }
+			}
 				
-				mvarLargeFont = new BitmapFont("Fonts/System.txf");
+				//mvarLargeFont = new BitmapFont("Fonts/System.txf");
 
 			Application.Start();
 #if !DEBUG
