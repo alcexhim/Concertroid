@@ -160,3 +160,6 @@ Website/Official/Include/Configuration.inc.php
 
 # MonoDevelop crap
 *.userprefs
+
+# LibreOffice
+.~lock.*
